@@ -1,6 +1,19 @@
 import React, { Component } from 'react';
 import HandsomeDude from '../images/mustache.jpg'
+import svgSource from '../images/house.svg'
+import { faHome, faCommentMedical } from "@fortawesome/free-solid-svg-icons";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 class ProfilePage extends Component {
+
+    onClickHome = (event) => {
+        console.log('Return back to the home page');
+        event.preventDefault();
+        this.props.history.push('/')
+    }
+
+
     render() {
         return (
             <div className="resume--profile-page--container">
@@ -31,18 +44,6 @@ class ProfilePage extends Component {
                             {/* TODO :: CLEAN UP INTO COMPONENTS , ROUGH DRAFT */}
                             <div className="resume--profile-page--education_school">
                                 <div>
-                                    2009-2011
-                                </div>
-                                <div>
-                                    Cape Cod Community College
-                                </div>
-                                <div>
-                                    AA Liberal Arts
-                                </div>
-                            </div>
-
-                            <div className="resume--profile-page--education_school">
-                                <div>
                                     2012-2014
                                 </div>
                                 <div>
@@ -52,8 +53,11 @@ class ProfilePage extends Component {
                                     BS Computer Science 
                                 </div>
                             </div>
-                            <div className="resume--profile-page--home-page">
-                            </div>
+                            <button 
+                                onClick={this.onClickHome}
+                                className="resume--profile-page--home-page">
+                                <FontAwesomeIcon className="resume--profile-page--home-icon fa-2x" icon={faHome} />
+                            </button>
                             <div></div>
                         </div>
 
